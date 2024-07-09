@@ -3,14 +3,22 @@ package com.polus.servicerequest.dto;
 public class LoginDTO {
 
 	private String email;
-    private String userdtopassword;
-    
-    public LoginDTO(String email, String userpassword) {
+	private String userPassword;
+
+//constructors
+
+	public LoginDTO() {
+		super();
+	}
+
+	public LoginDTO(String email, String userpassword) {
 		super();
 		this.email = email;
-		this.userdtopassword = userpassword;
+		this.userPassword = userpassword;
 	}
-    
+
+//getters and setters
+
 	public String getEmail() {
 		return email;
 	}
@@ -19,26 +27,17 @@ public class LoginDTO {
 		this.email = email;
 	}
 
-	
-
 	public String getUserpassword() {
-		return userdtopassword;
+		return userPassword;
 	}
 
 	public void setUserpassword(String userpassword) {
-		this.userdtopassword = userpassword;
-	}
-
-	public LoginDTO() {
-		super();
+		this.userPassword = userpassword;
 	}
 
 	@Override
 	public String toString() {
-		return "LoginDTO [email=" + email + ", emp_password=" + userdtopassword + "]";
+		return "LoginDTO [email=" + email + ", emp_password=" + userPassword + "]";
 	}
-	
-	
-    
-    
+
 }

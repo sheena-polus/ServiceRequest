@@ -1,9 +1,9 @@
 package com.polus.servicerequest.dto;
 
 public class RolesDTO {
-	 private int roleid;
-	    private String rolename;
-	    private String roledescription;
+	 private int roleId;
+	    private String roleName;
+	    private String roleDescription;
 	    
 	    
 		public RolesDTO() {
@@ -11,27 +11,27 @@ public class RolesDTO {
 		}
 		public RolesDTO(int roleid, String rolename, String roledescription) {
 			super();
-			this.roleid = roleid;
-			this.rolename = rolename;
-			this.roledescription = roledescription;
+			this.roleId = roleid;
+			this.roleName = rolename;
+			this.roleDescription = roledescription;
 		}
 		public int getRoleid() {
-			return roleid;
+			return roleId;
 		}
 		public void setRoleid(int roleid) {
-			this.roleid = roleid;
+			this.roleId = roleid;
 		}
 		public String getRolename() {
-			return rolename;
+			return roleName;
 		}
 		public void setRolename(String rolename) {
-			this.rolename = rolename;
+			this.roleName = rolename;
 		}
 		public String getRoledescription() {
-			return roledescription;
+			return roleDescription;
 		}
 		public void setRoledescription(String roledescription) {
-			this.roledescription = roledescription;
+			this.roleDescription = roledescription;
 		}
 	    
 }
