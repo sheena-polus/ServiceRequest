@@ -2,8 +2,10 @@ package com.polus.servicerequest.entity;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -11,23 +13,29 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Roles")
+@Table(name = "ROLES")
 public class Roles {
 
 
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    @Column(name = "role_id")
+	    @Column(name = "roleid")
 	    private int roleId;
 
-	    @Column(name = "role_name", nullable = false)
+	    @Column(name = "rolename", nullable = false)
 	    private String roleName;
 
-	    @Column(name = "role_description", nullable = false)
+	    @Column(name = "roledescription", nullable = false)
 	    private String roleDescription;
 
-	    @OneToMany(mappedBy = "role")
+	    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	    private List<UserRoles> userRoles;
+
+	    
+
+		public Roles() {
+			super();
+		}
 
 		public Roles(int roleId, String roleName, String roleDescription, List<UserRoles> userRoles) {
 			super();
@@ -67,6 +75,12 @@ public class Roles {
 
 		public void setUserRoles(List<UserRoles> userRoles) {
 			this.userRoles = userRoles;
+		}
+
+		@Override
+		public String toString() {
+			return "Roles [roleId=" + roleId + ", roleName=" + roleName + ", roleDescription=" + roleDescription
+					+ ", userRoles=" + userRoles + "]";
 		}
 
 	   

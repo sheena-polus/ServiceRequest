@@ -7,19 +7,25 @@ public class UserDTO {
 	    private String lastname;
 	    private String designation;
 	    private String email;
-	    private String empPassword;
+	    private String userPassword;
 	    private String country;
 	    private String state;
 	    private String address;
 	    private String phoneNo;
-		public UserDTO(String firstname, String lastname, String designation, String email, String empPassword,
+	    
+	    
+	    
+		public UserDTO() {
+			super();
+		}
+		public UserDTO(String firstname, String lastname, String designation, String email, String userPassword,
 				String country, String state, String address, String phoneNo) {
 			super();
 			this.firstname = firstname;
 			this.lastname = lastname;
 			this.designation = designation;
 			this.email = email;
-			this.empPassword = empPassword;
+			this.userPassword = userPassword;
 			this.country = country;
 			this.state = state;
 			this.address = address;
@@ -49,11 +55,11 @@ public class UserDTO {
 		public void setEmail(String email) {
 			this.email = email;
 		}
-		public String getEmpPassword() {
-			return empPassword;
+		public String getUserPassword() {
+			return userPassword;
 		}
-		public void setEmpPassword(String empPassword) {
-			this.empPassword = empPassword;
+		public void setUserPassword(String userPassword) {
+			this.userPassword = userPassword;
 		}
 		public String getCountry() {
 			return country;
@@ -79,7 +85,12 @@ public class UserDTO {
 		public void setPhoneNo(String phoneNo) {
 			this.phoneNo = phoneNo;
 		}
-
-	
+		@Override
+		public String toString() {
+			return "UserDTO [firstname=" + firstname + ", lastname=" + lastname + ", designation=" + designation
+					+ ", email=" + email + ", userPassword=" + userPassword + ", country=" + country + ", state="
+					+ state + ", address=" + address + ", phoneNo=" + phoneNo + "]";
+		}
+		
 
 }

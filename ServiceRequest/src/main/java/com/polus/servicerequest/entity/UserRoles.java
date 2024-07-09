@@ -10,66 +10,63 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "UserRoles")
+@Table(name = "USERROLES")
 public class UserRoles {
 	
-	    @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    @Column(name = "id")
-	    private int id;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    @ManyToOne
+    @JoinColumn(name = "userid", referencedColumnName = "userid")
+    private User user;
+    
+    @ManyToOne
+    @JoinColumn(name = "roleid", referencedColumnName = "roleId")
+    private Roles role;
 
-	    @ManyToOne
-	    @JoinColumn(name = "emp_id", nullable = false)
-	    private User user;
+    
+	public UserRoles() {
+		super();
+	}
 
-	    @ManyToOne
-	    @JoinColumn(name = "role_id", nullable = false)
-	    private Roles role;
+	public UserRoles(int id, User user, Roles role) {
+		super();
+		this.id = id;
+		this.user = user;
+		this.role = role;
+	}
 
-		public UserRoles(int id, User user, Roles role) {
-			super();
-			this.id = id;
-			this.user = user;
-			this.role = role;
-		}
+	public int getId() {
+		return id;
+	}
 
-		public UserRoles() {
-			// TODO Auto-generated constructor stub
-		}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-		public int getId() {
-			return id;
-		}
+	public User getUser() {
+		return user;
+	}
 
-		public void setId(int id) {
-			this.id = id;
-		}
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-		public User getUser() {
-			return user;
-		}
+	public Roles getRole() {
+		return role;
+	}
 
-		public void setUser(User user) {
-			this.user = user;
-		}
+	public void setRole(Roles role) {
+		this.role = role;
+	}
 
-		public Roles getRole() {
-			return role;
-		}
+	@Override
+	public String toString() {
+		return "UserRoles [id=" + id + ", user=" + user + ", role=" + role + "]";
+	}
 
-		public void setRole(Roles role) {
-			this.role = role;
-		}
-
-		@Override
-		public String toString() {
-			return "UserRoles [id=" + id + ", user=" + user + ", role=" + role + "]";
-		}
-
-		public void setEmpId(int empId) {
-			// TODO Auto-generated method stub
-			
-		}
+		
 
 	    
 	
