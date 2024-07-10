@@ -61,10 +61,10 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
-	public LoginResponseDTO login(String email, String userpassword) {
+	public LoginResponseDTO login(String email, String userPassword) {
 		try {
-			User user = userRepository.findByEmail(email);
-			if (user != null && user.getUserPassword().equals(userpassword)) {
+			User user = userRepository.findByEmailAndUserPassword(email,userPassword);
+			if (user != null ) {
 				LoginResponseDTO loginResponseDTO = new LoginResponseDTO();
 				loginResponseDTO.setUserid(user.getUserId());
 				loginResponseDTO.setFirstname(user.getFirstname());
@@ -91,7 +91,7 @@ public class UserServiceImpl implements UserService {
 				throw new RuntimeException("Invalid credentials");
 			}
 		} catch (Exception e) {
-			return null;
+			throw new RuntimeException(e.getMessage());
 		}
 	}
 

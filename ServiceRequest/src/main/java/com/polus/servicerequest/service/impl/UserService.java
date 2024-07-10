@@ -13,6 +13,6 @@ public interface UserService {
 
 	ResponseEntity<Object> signup(UserDTO userDTO);
 
-	LoginResponseDTO login(String email, String userpassword);
+	LoginResponseDTO login(String email, String userPassword);
 
 }

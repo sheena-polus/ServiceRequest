@@ -22,38 +22,38 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "userid")
+	@Column(name = "USERID")
 	private int userId;
 
-	@Column(name = "firstname", nullable = false)
-	private String firstname;
+	@Column(name = "FIRSTNAME", nullable = false)
+	private String firstName;
 
-	@Column(name = "lastname", nullable = false)
-	private String lastname;
+	@Column(name = "LASTNAME", nullable = false)
+	private String lastName;
 
-	@Column(name = "designation")
+	@Column(name = "DESIGNATION")
 	private String designation;
 
-	@Column(name = "email", unique = true, nullable = false)
+	@Column(name = "EMAIL", unique = true, nullable = false)
 	private String email;
 
-	@Column(name = "userpassword")
+	@Column(name = "USERPASSWORD")
 	private String userPassword;
 
 	@LastModifiedDate
-	@Column(name = "created_at", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Column(name = "CREATED_AT", nullable = false)
 	private Date createdAt;
 
-	@Column(name = "country")
+	@Column(name = "COUNTRY")
 	private String country;
 
-	@Column(name = "state")
+	@Column(name = "STATE")
 	private String state;
 
-	@Column(name = "address")
+	@Column(name = "ADDRESS")
 	private String address;
 
-	@Column(name = "phone_no")
+	@Column(name = "PHONE_NO")
 	private String phoneNo;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -63,13 +63,13 @@ public class User {
 		super();
 	}
 
-	public User(int userId, String firstname, String lastname, String designation, String email, String userPassword,
+	public User(int userId, String firstName, String lastName, String designation, String email, String userPassword,
 			Date createdAt, String country, String state, String address, String phoneNo,
 			List<UserRoles> userRoles) {
 		super();
 		this.userId = userId;
-		this.firstname = firstname;
-		this.lastname = lastname;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.designation = designation;
 		this.email = email;
 		this.userPassword = userPassword;
@@ -90,19 +90,19 @@ public class User {
 	}
 
 	public String getFirstname() {
-		return firstname;
+		return firstName;
 	}
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
+	public void setFirstname(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getLastname() {
-		return lastname;
+		return lastName;
 	}
 
 	public void setLastname(String lastname) {
-		this.lastname = lastname;
+		this.lastName = lastname;
 	}
 
 	public String getDesignation() {

@@ -6,5 +6,5 @@ import com.polus.servicerequest.entity.User;
 
 public interface UserRepository extends JpaRepository<User,Integer>{
 
-	User findByEmail(String email);
+	User findByEmailAndUserPassword(String email,String userPassword);
 }
