@@ -1,6 +1,7 @@
 package com.polus.servicerequest.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,19 +23,22 @@ public class UserController {
 	@PostMapping("/signup")
 	public ResponseEntity<Object> signup(@RequestBody UserDTO userDTO) {
 		try {
-		return userService.signup(userDTO);
-		}
-		catch(Exception e){
+			return userService.signup(userDTO);
+		} catch (Exception e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 	}
 
 	@PostMapping("/login")
-	public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginDTO loginDTO) {
-		LoginResponseDTO response = userService.login(loginDTO.getEmail(), loginDTO.getUserpassword());
-		if (response != null) {
+	public ResponseEntity<Object> login(@RequestBody LoginDTO loginDTO) {
+		try {
+			LoginResponseDTO response = userService.login(loginDTO.getEmail(), loginDTO.getUserpassword());
 			return ResponseEntity.ok(response);
+
+		} catch (RuntimeException e) {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred during sign-in.");
 		}
-		return ResponseEntity.status(401).body(null);
 	}
 }

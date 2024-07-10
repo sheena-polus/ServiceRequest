@@ -1,6 +1,5 @@
 package com.polus.servicerequest.dto;
 
-
 import java.util.Date;
 import java.util.List;
 
@@ -18,8 +17,7 @@ public class LoginResponseDTO {
 	private List<RolesDTO> roles;
 
 	public LoginResponseDTO(int userid, String firstname, String lastname, String designation, String email,
-			Date created_at, String country, String state, String address, String phone_no,
-			List<RolesDTO> roles) {
+			Date created_at, String country, String state, String address, String phone_no, List<RolesDTO> roles) {
 		super();
 		this.userid = userid;
 		this.firstName = firstname;
@@ -125,7 +123,5 @@ public class LoginResponseDTO {
 	public void setRoles(List<RolesDTO> roles) {
 		this.roles = roles;
 	}
-
-	
 
 }

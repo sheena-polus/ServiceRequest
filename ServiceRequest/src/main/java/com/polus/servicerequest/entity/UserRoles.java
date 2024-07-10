@@ -1,6 +1,5 @@
 package com.polus.servicerequest.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,20 +11,19 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "USERROLES")
 public class UserRoles {
-	
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    
-    @ManyToOne
-    @JoinColumn(name = "userid", referencedColumnName = "userid")
-    private User user;
-    
-    @ManyToOne
-    @JoinColumn(name = "roleid", referencedColumnName = "roleId")
-    private Roles role;
 
-    
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
+	@ManyToOne
+	@JoinColumn(name = "USERID", referencedColumnName = "USERID")
+	private User user;
+
+	@ManyToOne
+	@JoinColumn(name = "ROLEID", referencedColumnName = "ROLEID")
+	private Roles role;
+
 	public UserRoles() {
 		super();
 	}
@@ -65,10 +63,5 @@ public class UserRoles {
 	public String toString() {
 		return "UserRoles [id=" + id + ", user=" + user + ", role=" + role + "]";
 	}
-
-		
-
-	    
-	
 
 }
