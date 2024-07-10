@@ -1,6 +1,5 @@
 package com.polus.servicerequest.service.impl;
 
-
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -16,9 +15,7 @@ import com.polus.servicerequest.dto.UserDTO;
 import com.polus.servicerequest.entity.User;
 import com.polus.servicerequest.entity.UserRoles;
 import com.polus.servicerequest.repo.RolesRepository;
-//import com.polus.servicerequest.repo.UserRepo;
 import com.polus.servicerequest.repo.UserRepository;
-//import com.polus.servicerequest.repo.UserRolesRepo;
 import com.polus.servicerequest.repo.UserRolesRepository;
 
 @Service
@@ -63,8 +60,8 @@ public class UserServiceImpl implements UserService {
 
 	public LoginResponseDTO login(String email, String userPassword) {
 		try {
-			User user = userRepository.findByEmailAndUserPassword(email,userPassword);
-			if (user != null ) {
+			User user = userRepository.findByEmailAndUserPassword(email, userPassword);
+			if (user != null) {
 				LoginResponseDTO loginResponseDTO = new LoginResponseDTO();
 				loginResponseDTO.setUserid(user.getUserId());
 				loginResponseDTO.setFirstname(user.getFirstname());

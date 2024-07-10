@@ -64,8 +64,7 @@ public class User {
 	}
 
 	public User(int userId, String firstName, String lastName, String designation, String email, String userPassword,
-			Date createdAt, String country, String state, String address, String phoneNo,
-			List<UserRoles> userRoles) {
+			Date createdAt, String country, String state, String address, String phoneNo, List<UserRoles> userRoles) {
 		super();
 		this.userId = userId;
 		this.firstName = firstName;
@@ -177,5 +176,4 @@ public class User {
 		this.userRoles = userRoles;
 	}
 
-	
 }

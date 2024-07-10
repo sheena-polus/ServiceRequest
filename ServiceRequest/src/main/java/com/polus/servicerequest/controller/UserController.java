@@ -31,18 +31,13 @@ public class UserController {
 
 	@PostMapping("/login")
 	public ResponseEntity<Object> login(@RequestBody LoginDTO loginDTO) {
-		try
-		{
-		LoginResponseDTO response = userService.login(loginDTO.getEmail(), loginDTO.getUserpassword());
-		return ResponseEntity.ok(response);                                                                                                                                 
+		try {
+			LoginResponseDTO response = userService.login(loginDTO.getEmail(), loginDTO.getUserpassword());
+			return ResponseEntity.ok(response);
 
-		}
-		catch(RuntimeException e)
-		{
+		} catch (RuntimeException e) {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred during sign-in.");
 		}
 	}
